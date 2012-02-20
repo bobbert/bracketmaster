@@ -1,0 +1,18 @@
+defaults: &defaults
+  host: 127.0.0.1
+  port: 27017
+
+development:
+  <<: *defaults
+  database: bracketmaster_development
+
+test:
+  <<: *defaults
+  database: bracketmaster_test
+
+# set these environment variables on your prod server
+production:
+  <<: *defaults
+  database: bracketmaster
+  username: <%= ENV['MONGO_USERNAME'] %>
+  password: <%= ENV['MONGO_PASSWORD'] %>
